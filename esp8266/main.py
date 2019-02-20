@@ -1,9 +1,7 @@
 
 import time
 from machine import Pin   
-Trig,Echo = Pin(26,Pin.OUT),Pin(27,Pin.IN)
-Trig.value(0)
-Echo.value(0)
+Trig,Echo = Pin(26,Pin.OUT,value=0),Pin(27,Pin.IN)
 def checkdist():
     Trig.value(1)
     time.sleep(0.00001)
@@ -18,9 +16,14 @@ def checkdist():
     return int(t3*340/2)  
 try:
     while 1:
-        #print('Distance:%0.2f cm' %checkdist())
-        print(checkdist())
-        time.sleep(1)
+      list=[]
+      for x in range(5):
+        list.append(checkdist())
+        time.sleep(0.2)
+      list.sort()
+      print(list[1])
+      #print('Distance:%0.2f cm' %checkdist())
+      #time.sleep(0.1)
 except KeyboardInterrupt:
     pass
     
