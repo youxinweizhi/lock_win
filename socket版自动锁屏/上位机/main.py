@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#by:youxinweizhi
 import ctypes,time
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtNetwork import QUdpSocket, QHostAddress
